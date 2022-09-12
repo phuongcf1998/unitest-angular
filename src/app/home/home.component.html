@@ -1,0 +1,49 @@
+<button pButton type="button">
+  <a [routerLink]="'/new/user'">Add New</a>
+</button>
+<br />
+<br />
+<p-table [value]="listUser" sortField="user_name">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th pSortableColumn="user_name">
+        User Name <p-sortIcon field="user_name"></p-sortIcon>
+      </th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th colspan="2" style="text-align: center">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-user>
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.user_name }}</td>
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
+      <td>{{ user.email }}</td>
+      <th>
+        <button pButton type="button" class="p-button-success">
+          <a [routerLink]="['/user', user.id]">Edit Info</a>
+        </button>
+      </th>
+      <th>
+        <button
+          pButton
+          pRipple
+          (click)="confirmDelete(user.id)"
+          type="button"
+          label="Delete this user"
+          class="p-button-danger"
+        ></button>
+      </th>
+    </tr>
+  </ng-template>
+</p-table>
+<p-confirmDialog
+ 
+  header="Confirmation"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>
+<p-messages [value]="msgs"></p-messages>

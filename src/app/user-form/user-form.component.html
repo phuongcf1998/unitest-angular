@@ -1,0 +1,82 @@
+<button pButton type="button">
+  <a [routerLink]="'/'">Back Home</a>
+</button>
+<br />
+<br />
+
+<form
+  *ngIf="userForm"
+  [formGroup]="userForm"
+  (ngSubmit)="onSubmit()"
+  class="card"
+>
+  <h2>User Form</h2>
+
+  <div class="field" *ngIf="userInfo">
+    <label for="id1">ID</label>
+    <input
+      id="id1"
+      formControlName="id"
+      type="text"
+     readonly
+      
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <div class="field">
+    <label for="firstname1">User Name</label>
+    <input
+      id="username1"
+      formControlName="user_name"
+      type="text"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <div class="field">
+    <label for="firstname1">First Name</label>
+    <input
+      id="firstname1"
+      formControlName="first_name"
+      type="text"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+  <div class="field">
+    <label for="lastname1">Last name</label>
+    <input
+      formControlName="last_name"
+      id="lastname1"
+      type="text"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <div class="field">
+    <label for="Age1">Age</label>
+    <input
+      formControlName="age"
+      id="Age1"
+      type="number"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <div class="field">
+    <label for="email1">Email</label>
+    <input
+      formControlName="email"
+      id="email1"
+      type="email"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <button
+    pButton
+    type="submit"
+    label="Submit"
+    [disabled]="!userForm.valid"
+  ></button>
+</form>
